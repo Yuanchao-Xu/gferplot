@@ -9,3 +9,4 @@ dist: precise
 r_binary_packages:
   - ggforce
   - units
+  - udunits2
