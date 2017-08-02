@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "^.*\\.Rproj$\n^\\.Rproj\\.user$\n^\\.travis\\.yml$\n",
+    "created" : 1501669298405.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "800086626",
+    "id" : "1C8AB52E",
+    "lastKnownWriteTime" : 1500886560,
+    "last_content_update" : 1500886560,
+    "path" : "~/GitHub/gfer/.Rbuildignore",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "text"
+}

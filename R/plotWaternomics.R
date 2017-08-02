@@ -15,45 +15,55 @@ getRadius <- function(y, small = 1.5, medium = 3, large = 5) {
 }
 
 
-
+#' plotScatterPie
+#'
+#' plot scatter pie chart for multidimension analysis, such as waternomics. This plot can
+#' provide information about water use/wastewater of each provinces and GDP mix of each provinces,
+#' see examples.
+#' @param data a dataframe with information like x, y, r, etc. Refer to \code{GDPmix}
+#' @param labelLine how far is label to pie chart, can be left with default value.
 #' @importFrom graphics plot abline text
 #' @import ggplot2
 #' @importFrom scatterpie geom_scatterpie
 
-plotWaternomics <- function(data, labelLine = NULL) {
-  layer_basic <- ggplot()
-  layer_points <- geom_point(data = data, aes(x, y, size = radius))
+plotScatterPlot <- function(data, labelLine = NULL) {
 
-  data$radius <- getRadius(data$GDP)
+  with (data, {
+    layer_basic <- ggplot()
+    #  layer_points <- geom_point(data = data, aes(x, y, size = radius))
 
-
-  layer_pie <- geom_scatterpie(data = data, aes(x, y, r = radius),
-                               cols = colnames(data)[3:5], color = NA)
-
-  if (is.null(labelLine)) labelLine <- max(data$radius)/3
-
-  layer_label <- geom_text_repel(data = data, aes(x, y, label = Province),
-                                 point.padding = unit(labelLine, "lines"))
-
-  layer_lines <-
-
-  #layer_legend <- geom_scatterpie_legend(data$radius, x= 0, y=0)
-
-  layer_plot <- layer_basic + layer_pie + layer_label + coord_equal()
+    data$radius <- getRadius(data$GDP)
 
 
-  style <- ggstyle()
+    layer_pie <- geom_scatterpie(data = data, aes(x, y, r = radius),
+                                 cols = colnames(data)[3:5], color = NA)
+
+    if (is.null(labelLine)) labelLine <- max(data$radius)/3
+
+    layer_label <- geom_text_repel(data = data, aes(x, y, label = Province),
+                                   point.padding = unit(labelLine, "lines"))
+
+    layer_lines <-
+
+      #layer_legend <- geom_scatterpie_legend(data$radius, x= 0, y=0)
+
+      layer_plot <- layer_basic + layer_pie + layer_label + coord_equal()
+
+
+    style <- ggstyle()
 
 
 
-  print(layer_plot + style)
+    print(layer_plot + style)
 
+
+  })
 
 
 }
 
 
-
+#' @import ggplot2
 ggstyle <- function() {
   a <- theme_classic() +
     theme(axis.line = element_line(size = 1, colour = "black"))
