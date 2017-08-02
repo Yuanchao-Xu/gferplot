@@ -1,14 +1,14 @@
 {
     "collab_server" : "",
-    "contents" : "# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r\n\nlanguage: R\nsudo: required\ncache: packages\napt_packages:\n  - libv8-dev\ndist: precise\nr_binary_packages:\n  - ggforce\n  - units\n  - udunits2\n",
+    "contents" : "# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r\n\nlanguage: R\nsudo: required\ncache: packages\napt_packages:\n  - libv8-dev\ndist: precise\nr_binary_packages:\n  - ggforce\n  - udunits2\n",
     "created" : 1501677383678.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "3309539856",
+    "hash" : "2131280281",
     "id" : "E9B3A299",
-    "lastKnownWriteTime" : 1501686143,
-    "last_content_update" : 1501686143491,
+    "lastKnownWriteTime" : 1501689232,
+    "last_content_update" : 1501689232925,
     "path" : "~/GitHub/gferplot/.travis.yml",
     "project_path" : ".travis.yml",
     "properties" : {
