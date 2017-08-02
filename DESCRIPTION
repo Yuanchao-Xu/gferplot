@@ -1,0 +1,24 @@
+Package: gfer
+Type: Package
+Title: Green Finance and Environmental Risk Related Plot
+Version: 0.1.1
+Date: 2017-8-1
+Authors@R: person("Yuanchao", "Xu", email = "xuyuanchao37@gmail.com",
+                  role = c("aut", "cre"))
+Description: Focuses on data visulization in green finance and environmental 
+  risk research and analysis.
+Encoding: UTF-8
+License: GPL-2
+LazyData: true
+Depends: R (>= 2.10)
+Imports: 
+    ggplot2,
+    ggrepel,
+    scatterpie
+RoxygenNote: 6.0.1
+URL: https://yuanchao-xu.github.io/gferplot/
+BugReports: https://github.com/Yuanchao-Xu/gferplot/issues
+Repository: CRAN
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr
