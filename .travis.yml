@@ -6,3 +6,5 @@ cache: packages
 apt_packages:
   - libv8-dev
 dist: precise
+r_binary_packages:
+  - ggforce
