@@ -1,6 +1,6 @@
-# gfer
-[![Travis-CI Build Status](https://travis-ci.org/Yuanchao-Xu/gfer.svg?branch=master)](https://travis-ci.org/Yuanchao-Xu/gfer)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/gfer)](https://cran.r-project.org/package=gfer)
+# gferplot
+[![Travis-CI Build Status](https://travis-ci.org/Yuanchao-Xu/gferplot.svg?branch=master)](https://travis-ci.org/Yuanchao-Xu/gferplot)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/gferplot)](https://cran.r-project.org/package=gferplot)
 
 
 ## Installation
@@ -8,7 +8,7 @@
 Released version from CRAN, for beginners and normal users:
 
 ```R
-install.packages("gfer")
+install.packages("gferplot")
 ```
 
 Development version from github, for experienced users and those who are interested in investigating:
@@ -16,20 +16,17 @@ Development version from github, for experienced users and those who are interes
 ```R
 install.packages("devtools")
 # You can ignore the line above, if you have already installed devtools
-devtools::install_github("Yuanchao-Xu/gfer")
+devtools::install_github("Yuanchao-Xu/gferplot")
 ```
 
-**Official Website is [http://yuanchao-xu.github.io/gfer](http://yuanchao-xu.github.io/gfer)**
+**Official Website is [http://yuanchao-xu.github.io/gferplot](http://yuanchao-xu.github.io/gferplot)**
 
-gfer is an R package, designed for green finance and environmental risk research. Focuses on data collecting and analyzing in green finance and environmental 
-  risk research and analysis. Main function includes environmental data collecting from 
-  official websites like MEP (Ministry of Environmental Protection of China, <http://www.mep.gov.cn>), water 
-  related projects identification and environmental data visualization.
+gferplot is an R package, designed for green finance and environmental risk research plotting
 
-**If you feel gfer is of a little help, please cite it as following:**
+**If you feel gferplot is of a little help, please cite it as following:**
 
-Yuanchao Xu (2017). gfer: Green Finance and Environmental Risk. R package version 0.1.6.
-  https://CRAN.R-project.org/package=gfer
+Yuanchao Xu (2017). gferplot: Green Finance and Environmental Risk Plotting. R package version 0.1.7.
+  https://CRAN.R-project.org/package=gferplot
 
 
 
