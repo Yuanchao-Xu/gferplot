@@ -4,7 +4,9 @@ language: R
 sudo: required
 cache: packages
 apt_packages:
-  - libv8-dev
   - libudunits2-dev
+# Since udunits2 library has to be installed outside R environment, so travis will not
+# have it by default, have to install it manually, ggforce and other packages with dependency units
+# will have the same issue.
 dist: precise
 

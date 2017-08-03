@@ -1,14 +1,14 @@
 {
     "collab_server" : "",
-    "contents" : "# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r\n\nlanguage: R\nsudo: required\ncache: packages\napt_packages:\n  - libv8-dev\n  - libudunits2-dev\ndist: precise\n\n",
+    "contents" : "# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r\n\nlanguage: R\nsudo: required\ncache: packages\napt_packages:\n  - libudunits2-dev\n# Since udunits2 library has to be installed outside R environment, so travis will not\n# have it by default, have to install it manually, ggforce and other packages with dependency units\n# will have the same issue.\ndist: precise\n\n",
     "created" : 1501668032776.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "2058750793",
+    "hash" : "1888390960",
     "id" : "4717C6D8",
-    "lastKnownWriteTime" : 1501728213,
-    "last_content_update" : 1501728213687,
+    "lastKnownWriteTime" : 1501729277,
+    "last_content_update" : 1501729277750,
     "path" : "~/GitHub/gferplot/.travis.yml",
     "project_path" : ".travis.yml",
     "properties" : {
