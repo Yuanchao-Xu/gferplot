@@ -26,6 +26,7 @@ getRadius <- function(y, small = 1.5, medium = 3, large = 5) {
 #' @param ymeanLine if plot y mean line
 #' @importFrom graphics plot abline text
 #' @importFrom ggrepel geom_text_repel
+#' @importFrom scatterpie geom_scatterpie
 #' @import ggplot2
 #'
 
@@ -38,7 +39,8 @@ plotScatterPie <- function(data, xmeanLine = TRUE, ymeanLine = TRUE, labelLine =
     data$radius <- getRadius(data$GDP)
 
     col <- c(rgb(107/255, 128/255, 51/255), rgb(2/255, 3/255, 3/255), rgb(13/255, 119/255, 185/255))
-    layer_pie <- geom_scatterpie_withcolor(data = data, aes(x, y, r = radius),
+
+    layer_pie <- geom_scatterpie(data = data, aes(x, y, r = radius),
                                  cols = colnames(data)[3:5], color = NA)
 
     if (is.null(labelLine)) labelLine <- max(data$radius)/3
@@ -47,7 +49,7 @@ plotScatterPie <- function(data, xmeanLine = TRUE, ymeanLine = TRUE, labelLine =
                                    point.padding = unit(labelLine, "lines"))
     #layer_legend <- geom_scatterpie_legend(data$radius, x= 0, y=0)
 
-    layer_plot <- layer_basic + layer_pie + layer_label + coord_equal()
+    layer_plot <- layer_basic + layer_pie + layer_label + scale_fill_manual(values=col) + coord_equal()
 
     if (xmeanLine == TRUE) layer_plot <- layer_plot + geom_vline(xintercept = mean(data$x), color = 'red', size = 1.5, linetype = 2)
     if (ymeanLine == TRUE) layer_plot <- layer_plot + geom_hline(yintercept = mean(data$y), color = 'red', size = 1.5, linetype = 2)
@@ -73,74 +75,7 @@ ggstyle <- function() {
 
 
 
-##' scatter pie plot
-##'
-##'
-##' @title geom_scatterpie
-##' @param mapping aes mapping
-##' @param data data
-##' @param cols cols the pie data
-##' @param ... additional parameters
-##' @importFrom ggforce geom_arc_bar
-##' @importFrom utils modifyList
-##' @importFrom tidyr gather_
-##' @importFrom ggplot2 aes_
-##' @export
-##' @return layer
-##' @examples
-##' library(ggplot2)
-##' d <- data.frame(x=rnorm(5), y=rnorm(5))
-##' d$A <- abs(rnorm(5, sd=1))
-##' d$B <- abs(rnorm(5, sd=2))
-##' d$C <- abs(rnorm(5, sd=3))
-##' ggplot() + geom_scatterpie(aes(x=x, y=y), data=d, cols=c("A", "B", "C")) + coord_fixed()
-##' @author guangchuang yu
-geom_scatterpie_withcolor <- function(mapping=NULL, data, cols, ...) {
-  if (is.null(mapping))
-    mapping <- aes_(x=~x, y=~y)
-  mapping <- modifyList(mapping, aes_(r0=0, fill=~type,
-                                      amount=~value))
 
-  if (!'r' %in% names(mapping)) {
-    xvar <- as.character(mapping)["x"]
-    size <- diff(range(data[, xvar]))/50
-    mapping <- modifyList(mapping, aes_(r=size))
-  }
-
-  names(mapping)[match(c("x", "y"), names(mapping))] <- c("x0", "y0")
-
-  df <- gather_(data, "type", "value", cols)
-  ## df$type <- factor(df$type, levels=cols)
-  geom_arc_bar(mapping, data=df, stat='pie', inherit.aes=FALSE, ...)
-}
-
-
-#' pivot
-#'
-#' Transfer 2D table to readable table for tableau
-#'
-#'
-#' @param data a dataframe like \code{GDPmix}
-#' @param reserve choose which column to reserve
-#' @param newColName name for new column, apart from the reserved columns, all the other will be re-organised into a new column
-
-
-pivot <- function(data, reserve, newColName) {
-  data1 <- data[, reserve]
-  data2 <- do.call('rbind', rep(list(data1), ncol(data) - length(reserve)))
-  data3 <- data[, !(colnames(data) %in% reserve)]
-  data4 <- lapply(1:length(data3), function(x) {
-    name <- names(data3)[x]
-    x1 <- data3[, x]
-    y <- data.frame(rep(name, length(x1)), x1)
-    names(y) <- c(newColName, 'Value')
-    return (y)
-  })
-  data5 <- do.call('rbind', data4)
-
-  data6 <- cbind(data2, data5)
-  return(data6)
-}
 ########################################################################################
 #######################################################################################
 #'
