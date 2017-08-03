@@ -6,3 +6,4 @@ cache: packages
 apt_packages:
   - libv8-dev
 dist: precise
+brew_packages: udunits
