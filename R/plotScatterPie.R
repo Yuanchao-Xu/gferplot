@@ -20,7 +20,9 @@ getRadius <- function(y, small = 1.5, medium = 3, large = 5) {
 #' plot scatter pie chart for multidimension analysis, such as waternomics. This plot can
 #' provide information about water use/wastewater of each provinces and GDP mix of each provinces,
 #' see examples.
-#' @param data a dataframe with information like x, y, r, etc. Refer to \code{GDPmix}
+#' @param data a dataframe with information like x, y, r, label. See examples about how to assign these columns as required.
+#' @param pieRange define which column to which column to be presented by pie chart, see examples
+#' @param pieColor color for different colors in pie chart
 #' @param labelLine how far is label to pie chart, can be left with default value.
 #' @param xmeanLine if plot x mean line
 #' @param ymeanLine if plot y mean line
@@ -28,28 +30,45 @@ getRadius <- function(y, small = 1.5, medium = 3, large = 5) {
 #' @importFrom ggrepel geom_text_repel
 #' @importFrom scatterpie geom_scatterpie
 #' @import ggplot2
+#' @examples
+#'
+#'
+#' GDPColor_CWR <- c("#6B8033", "#020303", "#0D77B9")
+#'
+#' # Change colnames so that the function can recognize x, y, r, label
+#'
+#' colnames(GDPmix) <- c('label', 'r', '1st', '2nd', '3rd', 'x', 'y')
+#'
+#' \dontrun{
+#' plotScatterPie(GDPmix, pieRange = 3:5, pieColor = GDPColor_CWR)
+#' }
+#'
 #'
 
-plotScatterPie <- function(data, xmeanLine = TRUE, ymeanLine = TRUE, labelLine = NULL) {
+plotScatterPie <- function(data, pieRange, pieColor = NULL, xmeanLine = TRUE, ymeanLine = TRUE, labelLine = NULL) {
+
+  ## input check
+  if(is.null(pieRange)) stop("You have to assign which column to which column to be presented by pie chart.")
+  if(length(pieRange)!=length(pieColor)) stop("Length of pieRange and pieColor should be the same.")
+
 
   with (data, {
     layer_basic <- ggplot()
     #  layer_points <- geom_point(data = data, aes(x, y, size = radius))
 
-    data$radius <- getRadius(data$GDP)
+    data$radius <- getRadius(data$r)
 
-    col <- c(rgb(107/255, 128/255, 51/255), rgb(2/255, 3/255, 3/255), rgb(13/255, 119/255, 185/255))
 
     layer_pie <- geom_scatterpie(data = data, aes(x, y, r = radius),
-                                 cols = colnames(data)[3:5], color = NA)
+                                 cols = colnames(data)[pieRange], color = NA)
 
     if (is.null(labelLine)) labelLine <- max(data$radius)/3
 
-    layer_label <- geom_text_repel(data = data, aes(x, y, label = Province),
+    layer_label <- geom_text_repel(data = data, aes(x, y, label = label),
                                    point.padding = unit(labelLine, "lines"))
     #layer_legend <- geom_scatterpie_legend(data$radius, x= 0, y=0)
 
-    layer_plot <- layer_basic + layer_pie + layer_label + scale_fill_manual(values=col) + coord_equal()
+    layer_plot <- layer_basic + layer_pie + layer_label + scale_fill_manual(values=pieColor) + coord_equal()
 
     if (xmeanLine == TRUE) layer_plot <- layer_plot + geom_vline(xintercept = mean(data$x), color = 'red', size = 1.5, linetype = 2)
     if (ymeanLine == TRUE) layer_plot <- layer_plot + geom_hline(yintercept = mean(data$y), color = 'red', size = 1.5, linetype = 2)

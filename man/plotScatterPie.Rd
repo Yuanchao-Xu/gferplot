@@ -4,10 +4,15 @@
 \alias{plotScatterPie}
 \title{plotScatterPie}
 \usage{
-plotScatterPie(data, xmeanLine = TRUE, ymeanLine = TRUE, labelLine = NULL)
+plotScatterPie(data, pieRange, pieColor = NULL, xmeanLine = TRUE,
+  ymeanLine = TRUE, labelLine = NULL)
 }
 \arguments{
-\item{data}{a dataframe with information like x, y, r, etc. Refer to \code{GDPmix}}
+\item{data}{a dataframe with information like x, y, r, label. See examples about how to assign these columns as required.}
+
+\item{pieRange}{define which column to which column to be presented by pie chart, see examples}
+
+\item{pieColor}{color for different colors in pie chart}
 
 \item{xmeanLine}{if plot x mean line}
 
@@ -19,4 +24,19 @@ plotScatterPie(data, xmeanLine = TRUE, ymeanLine = TRUE, labelLine = NULL)
 plot scatter pie chart for multidimension analysis, such as waternomics. This plot can
 provide information about water use/wastewater of each provinces and GDP mix of each provinces,
 see examples.
+}
+\examples{
+
+
+GDPColor_CWR <- c("#6B8033", "#020303", "#0D77B9")
+
+# Change colnames so that the function can recognize x, y, r, label
+
+colnames(GDPmix) <- c('label', 'r', '1st', '2nd', '3rd', 'x', 'y')
+
+\dontrun{
+plotScatterPie(GDPmix, pieRange = 3:5, pieColor = GDPColor_CWR)
+}
+
+
 }
