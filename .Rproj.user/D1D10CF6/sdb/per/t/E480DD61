@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "\n#' plotScatterPie\n#'\n#' plot scatter pie chart for multidimension analysis, such as waternomics. This plot can\n#' provide information about water use/wastewater of each provinces and GDP mix of each provinces,\n#' see examples.\n#' @param data a dataframe showing different management intersections. See examples\n#' @param\n#' @param newColname2\n#' @importFrom tidyr gather\n#' @import circlize\n#' @examples\n#'\n#'\n#'\n#' \\dontrun{\n#' plotChord(cm)\n#' }\n#'\nplotChord <- function(data) {\n\n  # tidy up data\n  a <- gather(data, 'responsibility', 'value', 2:ncol(data))\n\n  # clean the canvass\n  circos.clear()\n  # plot basic plot\n  chordDiagram(a, annotationTrack = \"grid\")\n\n  # change label settings\n  circos.track(track.index = 1, panel.fun = function(x, y) {\n    circos.text(CELL_META$xcenter, CELL_META$ylim[1], CELL_META$sector.index,\n                facing = \"clockwise\", niceFacing = TRUE, adj = c(0, 0.5))\n  }, bg.border = NA)\n\n\n  # set up small gap and big gap\n  small_gap = 1\n  big_gap = 20\n\n  # calculate angle for each category\n  nr = nrow(data)\n  nc = ncol(data)\n  n_sector = nr + nc\n  row_sector_degree = (360 - small_gap*(n_sector - 2) - big_gap*2) * 0.5 +\n    small_gap*(nr-1)\n\n  start_degree = 90 - (180 - row_sector_degree)/2\n\n  # calculate starting degree\n  gaps = c(rep(small_gap, nrow(data) - 1), big_gap, rep(small_gap, ncol(data) - 1), big_gap)\n  circos.par(gap.after = gaps, start.degree = start_degree)\n\n  circos.clear()\n  abline(h = 0, lty = 2, col = \"#00000080\")\n\n\n}\nset.seed(999)\nmat = matrix(sample(18, 18), 3, 6)\nrownames(mat) = paste0(\"S\", 1:3)\ncolnames(mat) = paste0(\"E\", 1:6)\n\nrow_sum = sum(rowSums(abs(mat)))\ncol_sum = sum(colSums(abs(mat)))\nsmall_gap = 1\nbig_gap = 20\nnr = nrow(mat)\nnc = ncol(mat)\nn_sector = nr + nc\nrow_sector_degree = (360 - small_gap*(n_sector - 2) - big_gap*2) * (row_sum/(row_sum + col_sum)) +\n  small_gap*(nr-1)\nstart_degree = 90 - (180 - row_sector_degree)/2\ngaps = c(rep(small_gap, nrow(mat) - 1), big_gap, rep(small_gap, ncol(mat) - 1), big_gap)\ncircos.par(gap.after = gaps, start.degree = start_degree)\nchordDiagram(mat, grid.col = grid.col)\ncircos.clear()\nabline(v = 0, lty = 2, col = \"#00000080\")\n\n\n",
+    "created" : 1502113323332.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1187621660",
+    "id" : "E480DD61",
+    "lastKnownWriteTime" : 1502127102,
+    "last_content_update" : 1502127102933,
+    "path" : "~/GitHub/gferplot/R/plotCircular.R",
+    "project_path" : "R/plotCircular.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

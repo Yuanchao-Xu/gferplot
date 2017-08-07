@@ -15,3 +15,11 @@
 "GDPmix"
 
 
+#' Matrix showing complicated management of China's Water Resource
+#'
+#'
+#' @format A data frame with 13 rows and 11 variables:
+#' \describe{
+#'   ...
+#' }
+"cm"
