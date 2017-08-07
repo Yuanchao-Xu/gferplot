@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(circlize)\n",
+    "created" : 1501817220500.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1269150136",
+    "id" : "E85584EA",
+    "lastKnownWriteTime" : 1501825212,
+    "last_content_update" : 1501825212670,
+    "path" : "~/GitHub/gferplot/R/plotCircular.R",
+    "project_path" : "R/plotCircular.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

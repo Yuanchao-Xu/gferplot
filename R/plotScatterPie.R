@@ -89,6 +89,7 @@ ggstyle <- function() {
   #   theme(axis.line = element_line(size = 1, colour = "black"))
              #panel.background = element_rect(fill = "white"),
              #panel.grid.major = element_line(colour = "grey50"))
+  return(theme_set(theme_bw()))
 }
 
 
