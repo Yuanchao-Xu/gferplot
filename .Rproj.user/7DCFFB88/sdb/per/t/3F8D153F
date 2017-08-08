@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "gfer 0.1.1\n==========\nDate: 2017-8-8\n\n- add waternomic plot and circular plot\n\n\n\n\n\n\n\n\n",
+    "created" : 1502175955202.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2584500847",
+    "id" : "3F8D153F",
+    "lastKnownWriteTime" : 1502175981,
+    "last_content_update" : 1502175981269,
+    "path" : "~/GitHub/gferplot/NEWS",
+    "project_path" : "NEWS",
+    "properties" : {
+    },
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "text"
+}
