@@ -25,6 +25,9 @@ if highlight has more than 2 items, they should belong to same category, either 
 \item{ylim}{y limte of the chart, default is c(-1, 1)}
 }
 \description{
+if 'Summation of cell padding on y-direction are larger than the height of the cells' appears, just enlarge the xlim or ylim accordingly
+}
+\details{
 plot scatter pie chart for multidimension analysis, such as waternomics. This plot can
 provide information about water use/wastewater of each provinces and GDP mix of each provinces,
 see examples.

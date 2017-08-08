@@ -67,17 +67,22 @@ plotScatterPie <- function(data, pieRange, pieColor = NULL, xmeanLine = TRUE, ym
     layer_label <- geom_text_repel(data = data, aes(x, y, label = label),
                                    point.padding = unit(labelLine, "lines"))
     #layer_legend <- geom_scatterpie_legend(data$radius, x= 0, y=0)
-
-    layer_plot <- layer_basic + layer_pie + layer_label + scale_fill_manual(values=pieColor) + coord_equal()
-
-    if (xmeanLine == TRUE) layer_plot <- layer_plot + geom_vline(xintercept = mean(data$x), color = 'red', size = 1.5, linetype = 2)
-    if (ymeanLine == TRUE) layer_plot <- layer_plot + geom_hline(yintercept = mean(data$y), color = 'red', size = 1.5, linetype = 2)
+    if (xmeanLine == TRUE) layer_basic <- layer_basic + geom_vline(xintercept = mean(data$x), color = 'red', size = 1.5, linetype = 2)
+    if (ymeanLine == TRUE) layer_basic <- layer_basic + geom_hline(yintercept = mean(data$y), color = 'red', size = 1.5, linetype = 2)
 
 
+    layer_plot <- layer_basic + layer_pie + layer_label + scale_fill_manual(values=pieColor) +
+      coord_equal() + ggstyle()
 
-    style <- ggstyle()
+    # # set up xlim and ylim to keep the chart ratio more or less 4:3
+    # xlim <- getLim(data$x)
+    # ylim <- getLim(data$y)
+    #
+    # xlim <- adjustxlim(xlim, ylim)
+    #
+    # layer_plot <- layer_plot + xlim(xlim) + ylim(ylim)
 
-    print(layer_plot + style)
+    print(layer_plot)
 
   })
 }
@@ -85,16 +90,29 @@ plotScatterPie <- function(data, pieRange, pieColor = NULL, xmeanLine = TRUE, ym
 
 #' @import ggplot2
 ggstyle <- function() {
-  # a <- theme_classic() +
+  a <- theme_set(theme_bw())
   #   theme(axis.line = element_line(size = 1, colour = "black"))
              #panel.background = element_rect(fill = "white"),
              #panel.grid.major = element_line(colour = "grey50"))
-  return(theme_set(theme_bw()))
+  return(a)
 }
 
+adjustxlim <- function(xlim, ylim, ratio = 0.75) {
+  length_y <- max(ylim) - min(ylim)
+  length_x <- max(xlim) - min(xlim)
+  if (length_x < length_y/ratio) xlim <- c(min(xlim), min(xlim) + length_y)
+  return(xlim)
+}
 
+getLim <- function(x) {
+  # decide axis interval
+  dig <- nchar(min(round(x)))
 
+  x1 <- round(min(x) - (max(x) - min(x))/length(x), -(dig - 1))
+  x2 <- round(max(x) + (max(x) - min(x))/length(x), -(dig - 1))
 
+  return(c(x1, x2))
+}
 
 ########################################################################################
 #######################################################################################
@@ -230,15 +248,6 @@ ggstyle <- function() {
 #'
 #'
 #'
-#' getLim <- function(x) {
-#'   # decide axis interval
-#'   dig <- nchar(min(round(x)))
-#'
-#'   x1 <- round(min(x) - (max(x) - min(x))/length(x), -(dig - 1))
-#'   x2 <- round(max(x) + (max(x) - min(x))/length(x), -(dig - 1))
-#'
-#'   return(c(x1, x2))
-#' }
 #'
 #'
 #'

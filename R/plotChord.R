@@ -13,6 +13,7 @@
 #' if highlight has more than 2 items, they should belong to same category, either colnames, or names. One name and one column name is not allowed.
 #' @param xlim x limit of the chart, default is c(-1, 1)
 #' @param ylim y limte of the chart, default is c(-1, 1)
+#' @description if 'Summation of cell padding on y-direction are larger than the height of the cells' appears, just enlarge the xlim or ylim accordingly
 #' @import circlize
 #' @examples
 #'
