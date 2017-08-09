@@ -1,14 +1,14 @@
 {
     "collab_server" : "",
-    "contents" : "Package: gferplot\nType: Package\nTitle: Green Finance and Environmental Risk Related Plot\nVersion: 0.1.1\nDate: 2017-8-8\nAuthors@R: person(\"Yuanchao\", \"Xu\", email = \"xuyuanchao37@gmail.com\",\n                  role = c(\"aut\", \"cre\"))\nDescription: Focuses on data visulization in green finance and environmental \n  risk research and analysis.\nEncoding: UTF-8\nLicense: GPL-2\nLazyData: true\nDepends: R (>= 2.10)\nImports: \n    ggplot2,\n    ggrepel,\n    scatterpie,\n    circlize,\n    tidyr\nRoxygenNote: 6.0.1\nURL: https://yuanchao-xu.github.io/gferplot/\nBugReports: https://github.com/Yuanchao-Xu/gferplot/issues\nRepository: CRAN\nSuggests: knitr,\n    rmarkdown\nVignetteBuilder: knitr\n",
+    "contents" : "Package: gferplot\nType: Package\nTitle: Green Finance and Environmental Risk Related Plot\nVersion: 0.1.1\nDate: 2017-8-8\nAuthors@R: person(\"Yuanchao\", \"Xu\", email = \"xuyuanchao37@gmail.com\",\n                  role = c(\"aut\", \"cre\"))\nDescription: Focuses on data visualization in green finance and environmental \n  risk research and analysis.\nEncoding: UTF-8\nLicense: GPL-2\nLazyData: true\nDepends: R (>= 2.10)\nImports: \n    ggplot2,\n    ggrepel,\n    scatterpie,\n    circlize,\n    tidyr\nRoxygenNote: 6.0.1\nURL: https://yuanchao-xu.github.io/gferplot/\nBugReports: https://github.com/Yuanchao-Xu/gferplot/issues\nRepository: CRAN\nSuggests: knitr,\n    rmarkdown\nVignetteBuilder: knitr\n",
     "created" : 1501667283060.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "1256007111",
+    "hash" : "747103343",
     "id" : "F86D346B",
-    "lastKnownWriteTime" : 1502175976,
-    "last_content_update" : 1502175976896,
+    "lastKnownWriteTime" : 1502265345,
+    "last_content_update" : 1502265345558,
     "path" : "~/GitHub/gferplot/DESCRIPTION",
     "project_path" : "DESCRIPTION",
     "properties" : {

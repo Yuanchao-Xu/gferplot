@@ -19,7 +19,7 @@ install.packages("devtools")
 devtools::install_github("Yuanchao-Xu/gferplot")
 ```
 
-**Official Website is [http://yuanchao-xu.github.io/gferplot](http://yuanchao-xu.github.io/gferplot)**
+**Official Website is [http://yuanchao-xu.github.io/gferplot](https://yuanchao-xu.github.io/gferplot)**
 
 gferplot is an R package, designed for green finance and environmental risk research plotting
 
