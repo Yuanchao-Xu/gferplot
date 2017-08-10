@@ -1,0 +1,27 @@
+---
+title: '[gferplot Easy Start](http://yuanchao-xu.github.io/gferplot/)'
+author: '[Yuanchao Xu](https://www.linkedin.com/in/xuyuanchao37)'
+date: '`r Sys.Date()`'
+output:
+  pdf_document:
+    toc: yes
+    toc_depth: 3
+  html_document:
+    toc: yes
+vignette: |
+  %\VignetteIndexEntry{gferplot easy start} 
+  %\VignetteEngine{knitr::rmarkdown} 
+  %\VignetteEncoding{UTF-8}
+---
+
+# Introduction
+
+**Official Website is [http://yuanchao-xu.github.io/gferplot](http://yuanchao-xu.github.io/gferplot), where manuals and more details can be found.**
+
+Focuses on data visualization in green finance and environmental 
+  risk research and analysis.
+
+**If you feel gfer is of a little help, please cite it as following:**
+
+Yuanchao Xu (2017). gferplot: Green Finance and Environmental Risk Visualization. R package version 0.1.6.
+  https://CRAN.R-project.org/package=gfer

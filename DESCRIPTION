@@ -1,6 +1,6 @@
 Package: gferplot
 Type: Package
-Title: Green Finance and Environmental Risk Related Plot
+Title: Green Finance and Environmental Risk Related Visualization
 Version: 0.1.1
 Date: 2017-8-8
 Authors@R: person("Yuanchao", "Xu", email = "xuyuanchao37@gmail.com",

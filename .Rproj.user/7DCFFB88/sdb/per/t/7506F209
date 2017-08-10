@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: '[gferplot Easy Start](http://yuanchao-xu.github.io/gferplot/)'\nauthor: '[Yuanchao Xu](https://www.linkedin.com/in/xuyuanchao37)'\ndate: '`r Sys.Date()`'\noutput:\n  pdf_document:\n    toc: yes\n    toc_depth: 3\n  html_document:\n    toc: yes\nvignette: |\n  %\\VignetteIndexEntry{gferplot easy start} \n  %\\VignetteEngine{knitr::rmarkdown} \n  %\\VignetteEncoding{UTF-8}\n---\n\n# Introduction\n\n**Official Website is [http://yuanchao-xu.github.io/gferplot](http://yuanchao-xu.github.io/gferplot), where manuals and more details can be found.**\n\nFocuses on data visualization in green finance and environmental \n  risk research and analysis.\n\n**If you feel gfer is of a little help, please cite it as following:**\n\nYuanchao Xu (2017). gferplot: Green Finance and Environmental Risk Visualization. R package version 0.1.6.\n  https://CRAN.R-project.org/package=gfer\n",
+    "created" : 1502335238948.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3264661935",
+    "id" : "7506F209",
+    "lastKnownWriteTime" : 1502335558,
+    "last_content_update" : 1502335558419,
+    "path" : "~/GitHub/gferplot/vignettes/gferplot.Rmd",
+    "project_path" : "vignettes/gferplot.Rmd",
+    "properties" : {
+    },
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
